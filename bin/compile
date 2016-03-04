@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+# Configure environment
+set -e            # fail fast
+set -o pipefail   # do not ignore exit codes when piping output
+# set -x            # enable debugging
+
+# Clean up leaking environment
+unset GIT_DIR
+
+# Directories
+BUILD_DIR=$1
+BUILDPACK_DIR="$(dirname $(dirname $0))"
+
+PACKAGE_URL=https://github.com/heroku/addon-wait/releases/download/untagged-d30f3ffcedbebcc1060e/addon-wait-linux-64.gz
+TARGET_FILE=$BUILD_DIR/bin/addon-wait
+
+echo "-----> Downloading addon-wait into app/bin"
+mkdir -p $BUILD_DIR/bin
+curl $PACKAGE_URL -s -o - | gunzip > $TARGET_FILE
+chmod +x $TARGET_FILE
+
+echo "-----> addon-wait done"
