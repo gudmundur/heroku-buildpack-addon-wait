@@ -18,7 +18,7 @@ TARGET_FILE=$BUILD_DIR/bin/addon-wait
 
 echo "-----> Downloading addon-wait into app/bin"
 mkdir -p $BUILD_DIR/bin
-curl $PACKAGE_URL -s -o - | gunzip > $TARGET_FILE
+curl $PACKAGE_URL -s -L -o - | gunzip > $TARGET_FILE
 chmod +x $TARGET_FILE
 
 echo "-----> addon-wait done"
