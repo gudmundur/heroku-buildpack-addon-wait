@@ -2,12 +2,15 @@
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) that installs a small tool for waiting on Postgres and Redis addons to become available.
 
+The tool itself is available at [heroku/addon-wait](https://github.com/heroku/addon-wait).
+
 ## Usage
 
-First you need to set this buildpack as your initial buildpack with:
+You need to add this buildpack to your list of buildpacks:
 
 ```console
 $ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-addon-wait.git
 ```
 
+Then you can add `bin/addon-wait` as post deploy script to your `app.json`, see [here for details](https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api#post-deployment-scripts).
 
