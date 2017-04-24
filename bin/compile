@@ -16,6 +16,11 @@ BUILDPACK_DIR="$(dirname $(dirname $0))"
 PACKAGE_URL=https://github.com/heroku/addon-wait/releases/download/0.2.0/addon-wait-linux-64.gz
 TARGET_FILE=$BUILD_DIR/bin/addon-wait
 
+echo "!----> BUILDPACK DEPRECATED"
+echo "       This buildpack is no longer required and is unsupported as its"
+echo "       functionality has been built directly into the Heroku app-setups"
+echo         "API."
+echo ""
 echo "-----> Downloading addon-wait into app/bin"
 mkdir -p $BUILD_DIR/bin
 curl $PACKAGE_URL -s -L -o - | gunzip > $TARGET_FILE
