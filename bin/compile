@@ -19,7 +19,7 @@ TARGET_FILE=$BUILD_DIR/bin/addon-wait
 echo "!----> BUILDPACK DEPRECATED"
 echo "       This buildpack is no longer required and is unsupported as its"
 echo "       functionality has been built directly into the Heroku app-setups"
-echo         "API"
+echo         "API."
 echo ""
 echo "-----> Downloading addon-wait into app/bin"
 mkdir -p $BUILD_DIR/bin
